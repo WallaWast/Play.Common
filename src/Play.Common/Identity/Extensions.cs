@@ -8,7 +8,8 @@ namespace Play.Common.Identity
     {
         public static AuthenticationBuilder AddJwtBearerAuthentication(this IServiceCollection services)
         {
-            return services.ConfigureOptions<ConfigureJwtBearerOptions>()
+            return services
+                    .ConfigureOptions<ConfigureJwtBearerOptions>()
                     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer();
         }

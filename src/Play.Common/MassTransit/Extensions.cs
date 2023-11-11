@@ -36,8 +36,8 @@ namespace Play.Common.MassTransit
             {
                 var configuration = context.GetService<IConfiguration>();
                 var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-                var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
-                configurator.Host(rabbitMQSettings.Host);
+                var rabbitMqSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+                configurator.Host(rabbitMqSettings.Host);
                 configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
 
                 if (configureRetries == null)
